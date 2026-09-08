@@ -30,8 +30,7 @@ export default function Home() {
               </h1>
               <p className="mt-7 max-w-prose font-body text-lg text-ink-soft">
                 I turn ideas, emotions, and life into stories, lyrics, music, and
-                spoken word — words that make us feel something, see something
-                differently, and sometimes change something.
+                spoken word.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="#explore" className="btn-navy">
