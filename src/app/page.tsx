@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { contactEmail, featured, projects } from "@/components/data";
+import { contactEmail, featured } from "@/components/data";
 import Portrait from "@/components/Portrait";
 import Reveal from "@/components/Reveal";
 import SiteHeader from "@/components/SiteHeader";
 import SocialLinks from "@/components/SocialLinks";
+import WorldGrid from "@/components/WorldGrid";
 
 export const metadata: Metadata = {
-  title: "Diane Denise — Stories. Music. Imagination.",
+  title: "Diane Denise — Stories. Music. Purpose.",
 };
 
 export default function Home() {
@@ -25,15 +26,15 @@ export default function Home() {
                 <br />
                 Music.
                 <br />
-                <span className="italic font-normal text-navy">Imagination.</span>
+                <span className="font-normal italic text-navy">Purpose.</span>
               </h1>
               <p className="mt-7 max-w-prose font-body text-lg text-ink-soft">
-                Novels and poems about love and second chances. Songs for the
-                ordinary, tender moments in between. Gentle stories that keep
-                young minds curious and kind.
+                I turn ideas, emotions, and life into stories, lyrics, music, and
+                spoken word — words that make us feel something, see something
+                differently, and sometimes change something.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href="#work" className="btn-navy">
+                <a href="#explore" className="btn-navy">
                   Explore my world
                 </a>
                 <a href="#about" className="btn-outline">
@@ -68,20 +69,31 @@ export default function Home() {
               <h2 className="mt-1 font-display text-4xl text-ink sm:text-5xl">
                 Diane Denise
               </h2>
-              <div className="mx-auto my-7 h-px w-12 bg-ink/25" />
-              <p className="font-body text-lg text-ink-soft">
-                Diane Denise is a storyteller, songwriter, and imaginer. Her work
-                moves between novels, poetry, and music, and spills into gentle
-                worlds made for children. Different mediums, one intention — to
-                make the world feel a little less lonely and a little more full
-                of wonder.
+              <p className="mt-4 font-sans text-[11px] uppercase tracking-widemark text-taupe">
+                Writer · Lyricist · Storyteller · Founder
               </p>
+              <div className="mx-auto my-8 h-px w-12 bg-ink/25" />
+              <div className="space-y-4 font-body text-lg text-ink-soft">
+                <p>
+                  I turn ideas, emotions, and life into stories, lyrics, music,
+                  and spoken word.
+                </p>
+                <p>
+                  I believe words can make us feel something, see something
+                  differently, and sometimes change something.
+                </p>
+                <p>
+                  I&rsquo;m also the founder of My Conscious Kids, creating
+                  opportunities for children to grow with confidence, awareness,
+                  and purpose.
+                </p>
+              </div>
             </Reveal>
           </div>
         </section>
 
         {/* ---------- Featured: The Lantern Library ---------- */}
-        <section id="work" className="border-b border-ink/10">
+        <section id="library" className="border-b border-ink/10">
           <div className="mx-auto max-w-wrap px-6 py-20 text-center sm:py-24">
             <Reveal>
               <p className="eyebrow">Featured</p>
@@ -103,35 +115,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ---------- More from Diane ---------- */}
-        <section className="border-b border-ink/10 bg-cream-deep">
+        {/* ---------- Explore: My World ---------- */}
+        <section id="explore" className="border-b border-ink/10 bg-cream-deep">
           <div className="mx-auto max-w-wrap px-6 py-20 sm:py-24">
             <Reveal>
-              <h2 className="text-center font-display text-3xl text-ink sm:text-4xl">
-                More from Diane
+              <p className="eyebrow text-center">Explore</p>
+              <h2 className="mt-4 text-center font-display text-4xl text-ink sm:text-5xl">
+                My world
               </h2>
             </Reveal>
-            <div className="mx-auto mt-14 grid max-w-3xl gap-14 sm:grid-cols-2">
-              {projects.map((p, i) => (
-                <Reveal key={p.name} delay={i * 100} className="text-center">
-                  <p className="eyebrow">{p.kind}</p>
-                  <h3 className="mt-3 font-display text-2xl text-ink sm:text-3xl">
-                    {p.name}
-                  </h3>
-                  <p className="mx-auto mt-4 max-w-sm font-body text-[15px] text-ink-soft">
-                    {p.blurb}
-                  </p>
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-navy mt-7"
-                  >
-                    {p.cta}
-                  </a>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal delay={100} className="mx-auto mt-14 max-w-3xl">
+              <WorldGrid />
+            </Reveal>
           </div>
         </section>
 
@@ -161,16 +156,21 @@ export default function Home() {
       {/* ---------- Footer ---------- */}
       <footer className="bg-navy text-cream">
         <div className="mx-auto flex max-w-wrap flex-col items-center gap-3 px-6 py-14 text-center">
-          <p className="font-display text-xl tracking-[0.14em]">DIANE DENISE</p>
+          <p className="font-sans text-[11px] uppercase tracking-[0.4em] text-cream/45">
+            Welcome to my world
+          </p>
+          <p className="mt-2 font-display text-xl tracking-[0.14em]">
+            DIANE DENISE
+          </p>
           <p className="font-script text-xl text-cream/75">
-            stories, music &amp; imagination
+            stories, music &amp; purpose
           </p>
           <nav className="mt-3 flex gap-6 font-sans text-[11px] uppercase tracking-[0.2em] text-cream/60">
             <a href="#about" className="transition-colors hover:text-cream">
               About
             </a>
-            <a href="#work" className="transition-colors hover:text-cream">
-              Projects
+            <a href="#explore" className="transition-colors hover:text-cream">
+              Explore
             </a>
             <a href="#connect" className="transition-colors hover:text-cream">
               Connect

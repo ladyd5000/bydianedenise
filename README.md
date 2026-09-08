@@ -1,16 +1,23 @@
 # bydianedenise.com
 
-Landing page for **Diane Denise** — _Stories. Music. Imagination._
+Landing page for **Diane Denise** — _Stories. Music. Purpose._
 
 Built with Next.js 14 (App Router), TypeScript, and Tailwind CSS.
 
-## Featured work
+## Sections
 
-| Project | Link |
+Hero (with portrait) → pull-quote → About → featured **The Lantern Library**
+→ **My World** verb-tile grid (Read / Listen / Watch / Impact / Connect)
+→ Connect (email + socials) → footer.
+
+## Links
+
+| Tile | Destination |
 | --- | --- |
-| The Lantern Library _(featured)_ | https://www.yourlanternlibrary.com |
-| The Open Music Vault | https://www.youtube.com/@theopenmusicvault |
-| Conscious Kid | https://www.myconsciouskids.org |
+| Read → The Lantern Library _(featured)_ | https://www.yourlanternlibrary.com |
+| Listen / Watch → The Open Music Vault | https://www.youtube.com/@theopenmusicvault |
+| Impact → My Conscious Kids | https://myconsciouskids.org |
+| Contact | dianeddavis@gmail.com |
 
 ## Local development
 
@@ -50,9 +57,13 @@ vercel --prod # production deploy
 
 All copy and links live in [`src/components/data.ts`](src/components/data.ts):
 
-- `featured` — the prominent Lantern Library card
-- `projects` — the grid of other projects
+- `featured` — the prominent Lantern Library section
+- `worldTiles` / `connectTile` — the "My World" verb-tile grid
+- `contactEmail` — the address behind "Write to me" and the footer link
 - `socials` — social media links
+
+The About bio and the pull-quote are inline in
+[`src/app/page.tsx`](src/app/page.tsx).
 
 Design tokens (colors, fonts, radius) are in
 [`tailwind.config.ts`](tailwind.config.ts).

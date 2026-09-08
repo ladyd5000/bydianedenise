@@ -33,9 +33,9 @@ const parisienne = Parisienne({
 });
 
 const SITE_URL = "https://bydianedenise.com";
-const TITLE = "Diane Denise — Stories. Music. Imagination.";
+const TITLE = "Diane Denise — Stories. Music. Purpose.";
 const DESCRIPTION =
-  "The creative home of Diane Denise — storyteller, songwriter, and imaginer. Explore The Lantern Library, The Open Music Vault, and Conscious Kid.";
+  "Diane Denise is a writer, lyricist, storyteller, and founder of My Conscious Kids. She turns ideas, emotions, and life into stories, lyrics, music, and spoken word.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -45,10 +45,11 @@ export const metadata: Metadata = {
     "Diane Denise",
     "The Lantern Library",
     "The Open Music Vault",
-    "Conscious Kid",
-    "stories",
-    "music",
-    "imagination",
+    "My Conscious Kids",
+    "writer",
+    "lyricist",
+    "storyteller",
+    "spoken word",
   ],
   authors: [{ name: "Diane Denise" }],
   alternates: { canonical: SITE_URL },

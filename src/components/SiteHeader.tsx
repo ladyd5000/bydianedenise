@@ -13,7 +13,7 @@ export default function SiteHeader() {
             DIANE DENISE
           </span>
           <span className="mt-0.5 block font-script text-base text-navy/80">
-            stories, music &amp; imagination
+            stories, music &amp; purpose
           </span>
         </a>
 
@@ -22,8 +22,8 @@ export default function SiteHeader() {
             <a href="#about" className="transition-colors hover:text-navy">
               About
             </a>
-            <a href="#work" className="transition-colors hover:text-navy">
-              Projects
+            <a href="#explore" className="transition-colors hover:text-navy">
+              Explore
             </a>
             <a href="#connect" className="transition-colors hover:text-navy">
               Connect

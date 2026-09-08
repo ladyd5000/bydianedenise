@@ -31,11 +31,19 @@ export default function Reveal({ children, delay = 0, className = "" }: RevealPr
       setVisible(true);
       return;
     }
+    // Already in view on load (hero, etc.) — show immediately, don't wait on IO.
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      setVisible(true);
+      return;
+    }
+    // Safety net: never leave content hidden if the observer never fires.
+    const fallback = window.setTimeout(() => setVisible(true), 2500);
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
+            window.clearTimeout(fallback);
             io.disconnect();
           }
         });
@@ -43,7 +51,10 @@ export default function Reveal({ children, delay = 0, className = "" }: RevealPr
       { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      window.clearTimeout(fallback);
+      io.disconnect();
+    };
   }, []);
 
   return (
