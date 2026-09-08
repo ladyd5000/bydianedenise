@@ -74,10 +74,6 @@ export default function Home() {
               <div className="mx-auto my-8 h-px w-12 bg-ink/25" />
               <div className="space-y-4 font-body text-lg text-ink-soft">
                 <p>
-                  I turn ideas, emotions, and life into stories, lyrics, music,
-                  and spoken word.
-                </p>
-                <p>
                   I believe words can make us feel something, see something
                   differently, and sometimes change something.
                 </p>
