@@ -2,6 +2,75 @@ import type { SVGProps } from "react";
 
 /* Minimal, single-color line/glyph icons. currentColor throughout. */
 
+function Glyph({ children, ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      {children}
+    </svg>
+  );
+}
+
+/* --- "My World" tile glyphs --- */
+
+export function ReadGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Glyph {...props}>
+      <path d="M12 6.5C10.7 5.2 8.8 4.5 6.5 4.5H4v13h2.5c2.3 0 4.2.7 5.5 2" />
+      <path d="M12 6.5c1.3-1.3 3.2-2 5.5-2H20v13h-2.5c-2.3 0-4.2.7-5.5 2" />
+      <path d="M12 6.5v12" />
+    </Glyph>
+  );
+}
+
+export function ListenGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Glyph {...props}>
+      <path d="M9 17V5l10-2v12" />
+      <circle cx="6.5" cy="17" r="2.5" />
+      <circle cx="16.5" cy="15" r="2.5" />
+    </Glyph>
+  );
+}
+
+export function WatchGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Glyph {...props}>
+      <rect x="3" y="5" width="18" height="14" rx="3.5" />
+      <path d="M10.5 9.2l4.2 2.8-4.2 2.8z" fill="currentColor" stroke="none" />
+    </Glyph>
+  );
+}
+
+export function ImpactGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Glyph {...props}>
+      <circle cx="12" cy="8" r="2.6" />
+      <path d="M12 2.6v1.5M17 4.6l-1 1.2M7 4.6l1 1.2" />
+      <path d="M3.4 13c2.3 3.7 5.2 5.6 8.6 5.6s6.3-1.9 8.6-5.6" />
+      <path d="M3.4 13c-.5-.9-.3-1.9.5-2.5.8-.5 1.9-.3 2.6.5" />
+      <path d="M20.6 13c.5-.9.3-1.9-.5-2.5-.8-.5-1.9-.3-2.6.5" />
+    </Glyph>
+  );
+}
+
+export function ConnectGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Glyph {...props}>
+      <path d="M21 11.5a7 7 0 0 1-7 7H8l-4 3v-4.2A7 7 0 0 1 14 4.5h.2a7 7 0 0 1 6.8 7z" />
+      <path d="M9 10.5h6M9 14h4" />
+    </Glyph>
+  );
+}
+
 export function ArrowRight(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

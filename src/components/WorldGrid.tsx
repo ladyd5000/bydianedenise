@@ -1,21 +1,41 @@
 import { connectTile, worldTiles, type WorldTile } from "./data";
+import {
+  ConnectGlyph,
+  ImpactGlyph,
+  ListenGlyph,
+  ReadGlyph,
+  WatchGlyph,
+} from "./icons";
+import type { SVGProps } from "react";
 
 /** Warm, graded browns — darkest to lightest across the grid. */
 const shades = ["#33281F", "#3B2E23", "#4A3A2C", "#5A4636"];
 const connectShade = "#6B513D";
 
+const glyphs: Record<string, (p: SVGProps<SVGSVGElement>) => JSX.Element> = {
+  Read: ReadGlyph,
+  Listen: ListenGlyph,
+  Watch: WatchGlyph,
+  Impact: ImpactGlyph,
+  Connect: ConnectGlyph,
+};
+
 function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
   const linkProps = tile.external
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
+  const Icon = glyphs[tile.label];
   return (
     <a
       href={tile.href}
       {...linkProps}
       style={{ backgroundColor: bg }}
-      className="group flex h-full min-h-[190px] flex-col justify-center px-8 py-10 text-cream transition-transform duration-300 ease-editorial hover:-translate-y-0.5 sm:px-10"
+      className="group flex h-full min-h-[200px] flex-col justify-center px-8 py-10 text-cream transition-transform duration-300 ease-editorial hover:-translate-y-0.5 sm:px-10"
     >
-      <h3 className="flex items-center gap-3 font-display text-3xl sm:text-4xl">
+      {Icon && (
+        <Icon className="h-7 w-7 text-cream/55 transition-colors duration-300 group-hover:text-[#DCB988]" />
+      )}
+      <h3 className="mt-4 flex items-center gap-3 font-display text-3xl sm:text-4xl">
         {tile.label}
         <span
           aria-hidden="true"
