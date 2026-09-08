@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #f4eee2;
+  --cream-deep: #eae1d0;
+  --navy: #2a3550;
+  --navy-ink: #202942;
+  --ink: #2b2a26;
+  --ink-soft: #4a473f;
+  --taupe: #8b8170;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--navy);
+  outline-offset: 4px;
+}
+
+/* Underlined editorial text link */
+.link-underline {
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.3s ease;
+}
+.link-underline:hover {
+  opacity: 0.6;
+}
+
+@layer components {
+  .btn-navy {
+    @apply inline-flex items-center justify-center bg-navy px-8 py-4 font-sans text-[11px]
+      uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:bg-navy-ink;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center border border-ink/40 px-8 py-4 font-sans
+      text-[11px] uppercase tracking-[0.22em] text-ink transition-colors duration-300
+      hover:border-ink hover:bg-ink hover:text-cream;
+  }
+  .eyebrow {
+    @apply font-sans text-[11px] uppercase tracking-widemark text-taupe;
+  }
+}
+
+/* One intentional motion: content rises 22px + fades once, on entering view. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
