@@ -1,37 +1,30 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useState } from "react";
 
 /**
  * The one photograph — fills the right side of the hero.
- * Drop a portrait at `public/diane.jpg` (portrait orientation) and it appears
- * here. Until then, a warm monogram holds the space.
+ * Source lives at `public/diane.png`; Next.js serves an optimized, resized
+ * WebP/AVIF. If it ever fails to load, a warm monogram stands in.
  */
 export default function Portrait() {
-  const imgRef = useRef<HTMLImageElement>(null);
   const [failed, setFailed] = useState(false);
-
-  // The <img> may 404 before React hydrates and attaches onError, so also
-  // check for an already-broken image once on mount.
-  useEffect(() => {
-    const el = imgRef.current;
-    if (el && el.complete && el.naturalWidth === 0) setFailed(true);
-  }, []);
 
   return (
     <figure className="relative">
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream-deep md:aspect-auto md:h-[560px]">
-        {!failed && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            ref={imgRef}
-            src="/diane.jpg"
+        {!failed ? (
+          <Image
+            src="/diane.png"
             alt="Diane Denise"
-            className="h-full w-full object-cover object-top"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 45vw"
+            className="object-cover object-top"
             onError={() => setFailed(true)}
           />
-        )}
-        {failed && (
+        ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-navy/5">
             <span className="font-display text-6xl font-light text-navy/60">DD</span>
             <span className="eyebrow text-taupe/70">Portrait</span>
