@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { contactEmail, featured } from "@/components/data";
+import BookCover from "@/components/BookCover";
 import Portrait from "@/components/Portrait";
 import Reveal from "@/components/Reveal";
 import SiteHeader from "@/components/SiteHeader";
@@ -89,13 +90,16 @@ export default function Home() {
 
         {/* ---------- Featured: The Lantern Library ---------- */}
         <section id="library" className="border-b border-ink/10">
-          <div className="mx-auto max-w-wrap px-6 py-20 text-center sm:py-24">
+          <div className="mx-auto grid max-w-wrap items-center gap-12 px-6 py-20 sm:py-24 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
             <Reveal>
+              <BookCover />
+            </Reveal>
+            <Reveal delay={100} className="text-center md:text-left">
               <p className="eyebrow">Featured</p>
               <h2 className="mt-4 font-display text-5xl text-ink sm:text-6xl">
                 {featured.name}
               </h2>
-              <p className="mx-auto mt-6 max-w-prose font-body text-lg text-ink-soft">
+              <p className="mx-auto mt-6 max-w-prose font-body text-lg text-ink-soft md:mx-0">
                 {featured.blurb}
               </p>
               <a
