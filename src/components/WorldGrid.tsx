@@ -28,10 +28,9 @@ function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
     <a
       href={tile.href}
       {...linkProps}
-      style={{ backgroundColor: bg }}
-      className="group flex h-full min-h-[230px] flex-col justify-between px-7 py-8 text-cream transition-transform duration-300 ease-editorial hover:-translate-y-0.5 sm:px-8"
+      className="group flex h-full min-h-[230px] flex-col justify-between text-cream transition-transform duration-300 ease-editorial hover:-translate-y-0.5"
     >
-      <div>
+      <div style={{ backgroundColor: bg }} className="flex-1 px-7 py-8 sm:px-8">
         <div className="flex items-center justify-between gap-3">
           {Icon && <Icon className="h-6 w-6 shrink-0 text-cream/55" />}
           <span className="font-sans text-[10px] uppercase tracking-widemark text-cream/45">
@@ -47,9 +46,10 @@ function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
         </p>
       </div>
 
-      {/* Always-visible link affordance — not hover-dependent, so it works on touch. */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t border-cream/15 pt-4">
-        <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-[#A9C0EA] transition-transform duration-300 ease-editorial group-hover:translate-x-1">
+      {/* Solid navy bar — same treatment as the Enter the Library button. Always
+          visible, not hover-dependent, so it works on touch. */}
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 bg-navy px-7 py-4 sm:px-8">
+        <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-cream transition-transform duration-300 ease-editorial group-hover:translate-x-1">
           {tile.cta}
           {tile.external ? (
             <ExternalGlyph className="h-3.5 w-3.5" />
@@ -58,7 +58,7 @@ function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
           )}
         </span>
         {tile.url && (
-          <span className="font-body text-[11px] text-[#A9C0EA]/80 underline decoration-[#A9C0EA]/40 underline-offset-2">
+          <span className="font-body text-[11px] text-cream/70 underline decoration-cream/40 underline-offset-2">
             {tile.url}
           </span>
         )}
