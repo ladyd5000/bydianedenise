@@ -71,6 +71,16 @@ export function ConnectGlyph(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+/** Diagonal arrow + corner — the universal "opens elsewhere" mark. */
+export function ExternalGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Glyph {...props}>
+      <path d="M7 17 17 7" />
+      <path d="M9 7h8v8" />
+    </Glyph>
+  );
+}
+
 export function ArrowRight(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

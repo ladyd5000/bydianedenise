@@ -2,6 +2,8 @@ export type Featured = {
   name: string;
   blurb: string;
   href: string;
+  /** plain-text domain shown next to the button, so it visibly reads as a website */
+  url: string;
   cta: string;
   kind: string;
 };
@@ -11,56 +13,67 @@ export const featured: Featured = {
   blurb:
     "A quiet house of words — novels, poems, and songs about love, heartbreak, healing, and second chances, written so you remember you're not alone. Step inside the reading room and stay a while.",
   href: "https://www.yourlanternlibrary.com",
+  url: "yourlanternlibrary.com",
   cta: "Enter the Library",
   kind: "Stories & Writing",
 };
 
 export type WorldTile = {
-  label: string;
+  /** small label above the title — what kind of thing this is */
+  eyebrow: string;
+  /** the actual site/brand name — the big, readable heading */
+  title: string;
   meta: string;
   tagline: string;
   href: string;
+  /** plain-text destination shown on the tile; omitted for on-page links */
+  url?: string;
   external: boolean;
+  cta: string;
 };
 
-/** The verb-tiles — the main way into Diane's world. */
+/** The three destinations — the main way into Diane's world. */
 export const worldTiles: WorldTile[] = [
   {
-    label: "Read",
+    eyebrow: "Read",
+    title: "The Lantern Library",
     meta: "Stories · Books · Poetry",
     tagline: "Enter my world of words.",
     href: "https://www.yourlanternlibrary.com",
+    url: "yourlanternlibrary.com",
     external: true,
+    cta: "Visit Website",
   },
   {
-    label: "Listen",
-    meta: "Lyrics · Music · Spoken Word",
-    tagline: "Words you can feel.",
+    eyebrow: "Listen & Watch",
+    title: "The Open Music Vault",
+    meta: "Lyrics · Music · Spoken Word · Videos",
+    tagline: "Dig through the vault. Find your next track.",
     href: "https://www.youtube.com/@theopenmusicvault",
+    url: "youtube.com/@theopenmusicvault",
     external: true,
+    cta: "Watch on YouTube",
   },
   {
-    label: "Watch",
-    meta: "YouTube · Visual Stories",
-    tagline: "Stories brought to life.",
-    href: "https://www.youtube.com/@theopenmusicvault",
-    external: true,
-  },
-  {
-    label: "Impact",
-    meta: "My Conscious Kids",
+    eyebrow: "Impact",
+    title: "My Conscious Kids",
+    meta: "Nonprofit for children",
     tagline: "Brighter minds. A kinder tomorrow.",
     href: "https://myconsciouskids.org",
+    url: "myconsciouskids.org",
     external: true,
+    cta: "Visit Website",
   },
 ];
 
 export const connectTile: WorldTile = {
-  label: "Connect",
+  eyebrow: "Connect",
+  title: "Get in Touch",
   meta: "About · Contact · Socials",
   tagline: "Let's keep the conversation going.",
   href: "#connect",
   external: false,
+  cta: "Go to Contact",
 };
 
 export const contactEmail = "dianeddavis@gmail.com";

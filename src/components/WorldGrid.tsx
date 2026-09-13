@@ -1,21 +1,20 @@
 import { connectTile, worldTiles, type WorldTile } from "./data";
 import {
   ConnectGlyph,
+  ExternalGlyph,
   ImpactGlyph,
   ListenGlyph,
   ReadGlyph,
-  WatchGlyph,
 } from "./icons";
 import type { SVGProps } from "react";
 
-/** Warm, graded browns — darkest to lightest across the grid. */
-const shades = ["#33281F", "#3B2E23", "#4A3A2C", "#5A4636"];
-const connectShade = "#6B513D";
+/** Warm, graded browns. */
+const shades = ["#33281F", "#3B2E23", "#4A3A2C"];
+const connectShade = "#5A4636";
 
 const glyphs: Record<string, (p: SVGProps<SVGSVGElement>) => JSX.Element> = {
   Read: ReadGlyph,
-  Listen: ListenGlyph,
-  Watch: WatchGlyph,
+  "Listen & Watch": ListenGlyph,
   Impact: ImpactGlyph,
   Connect: ConnectGlyph,
 };
@@ -24,41 +23,57 @@ function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
   const linkProps = tile.external
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
-  const Icon = glyphs[tile.label];
+  const Icon = glyphs[tile.eyebrow];
   return (
     <a
       href={tile.href}
       {...linkProps}
       style={{ backgroundColor: bg }}
-      className="group flex h-full min-h-[200px] flex-col justify-center px-8 py-10 text-cream transition-transform duration-300 ease-editorial hover:-translate-y-0.5 sm:px-10"
+      className="group flex h-full min-h-[230px] flex-col justify-between px-7 py-8 text-cream transition-transform duration-300 ease-editorial hover:-translate-y-0.5 sm:px-8"
     >
-      {Icon && (
-        <Icon className="h-7 w-7 text-cream/55 transition-colors duration-300 group-hover:text-[#DCB988]" />
-      )}
-      <h3 className="mt-4 flex items-center gap-3 font-display text-3xl sm:text-4xl">
-        {tile.label}
-        <span
-          aria-hidden="true"
-          className="text-2xl leading-none transition-transform duration-300 ease-editorial group-hover:translate-x-1.5"
-        >
-          &rarr;
+      <div>
+        <div className="flex items-center justify-between gap-3">
+          {Icon && <Icon className="h-6 w-6 shrink-0 text-cream/55" />}
+          <span className="font-sans text-[10px] uppercase tracking-widemark text-cream/45">
+            {tile.eyebrow}
+          </span>
+        </div>
+        <h3 className="mt-4 font-display text-2xl leading-tight sm:text-[1.7rem]">
+          {tile.title}
+        </h3>
+        <p className="mt-2 font-body text-sm text-cream/65">{tile.meta}</p>
+        <p className="mt-1.5 font-body text-sm italic text-[#DCB988]">
+          {tile.tagline}
+        </p>
+      </div>
+
+      {/* Always-visible link affordance — not hover-dependent, so it works on touch. */}
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t border-cream/15 pt-4">
+        <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-cream transition-transform duration-300 ease-editorial group-hover:translate-x-1">
+          {tile.cta}
+          {tile.external ? (
+            <ExternalGlyph className="h-3.5 w-3.5" />
+          ) : (
+            <span aria-hidden="true">&darr;</span>
+          )}
         </span>
-      </h3>
-      <p className="mt-3 font-body text-sm text-cream/65">{tile.meta}</p>
-      <p className="mt-1.5 font-body text-sm italic text-[#DCB988]">
-        {tile.tagline}
-      </p>
+        {tile.url && (
+          <span className="font-body text-[11px] text-cream/50 underline decoration-cream/30 underline-offset-2">
+            {tile.url}
+          </span>
+        )}
+      </div>
     </a>
   );
 }
 
 export default function WorldGrid() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
+    <div className="grid gap-4 sm:grid-cols-3">
       {worldTiles.map((tile, i) => (
-        <Tile key={tile.label} tile={tile} bg={shades[i % shades.length]} />
+        <Tile key={tile.eyebrow} tile={tile} bg={shades[i % shades.length]} />
       ))}
-      <div className="sm:col-span-2">
+      <div className="sm:col-span-3">
         <Tile tile={connectTile} bg={connectShade} />
       </div>
     </div>

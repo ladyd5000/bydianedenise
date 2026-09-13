@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { contactEmail, featured } from "@/components/data";
 import BookCover from "@/components/BookCover";
+import { ExternalGlyph } from "@/components/icons";
 import Portrait from "@/components/Portrait";
 import Reveal from "@/components/Reveal";
 import SiteHeader from "@/components/SiteHeader";
@@ -102,14 +103,25 @@ export default function Home() {
               <p className="mx-auto mt-6 max-w-prose font-body text-lg text-ink-soft md:mx-0">
                 {featured.blurb}
               </p>
-              <a
-                href={featured.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-navy mt-9"
-              >
-                {featured.cta}
-              </a>
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-start">
+                <a
+                  href={featured.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-navy inline-flex items-center gap-2"
+                >
+                  {featured.cta}
+                  <ExternalGlyph className="h-4 w-4" />
+                </a>
+                <a
+                  href={featured.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline font-sans text-sm text-navy"
+                >
+                  {featured.url}
+                </a>
+              </div>
             </Reveal>
           </div>
         </section>
@@ -122,8 +134,12 @@ export default function Home() {
               <h2 className="mt-4 text-center font-display text-4xl text-ink sm:text-5xl">
                 My world
               </h2>
+              <p className="mx-auto mt-4 max-w-md text-center font-body text-ink-soft">
+                Three places to find me — each button below opens that
+                website.
+              </p>
             </Reveal>
-            <Reveal delay={100} className="mx-auto mt-14 max-w-3xl">
+            <Reveal delay={100} className="mx-auto mt-14 max-w-4xl">
               <WorldGrid />
             </Reveal>
           </div>
