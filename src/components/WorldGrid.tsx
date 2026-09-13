@@ -8,9 +8,8 @@ import {
 } from "./icons";
 import type { SVGProps } from "react";
 
-/** Warm, graded browns — lighter, coffee-toned rather than near-black. */
-const shades = ["#4E3B2A", "#5C4735", "#6B5540"];
-const connectShade = "#7A6249";
+/** One consistent warm caramel-brown across every tile. */
+const TILE_BROWN = "#7A6249";
 
 const glyphs: Record<string, (p: SVGProps<SVGSVGElement>) => JSX.Element> = {
   Read: ReadGlyph,
@@ -19,7 +18,7 @@ const glyphs: Record<string, (p: SVGProps<SVGSVGElement>) => JSX.Element> = {
   Connect: ConnectGlyph,
 };
 
-function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
+function Tile({ tile }: { tile: WorldTile }) {
   const linkProps = tile.external
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
@@ -30,7 +29,10 @@ function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
       {...linkProps}
       className="group flex h-full min-h-[230px] flex-col justify-between text-cream transition-transform duration-300 ease-editorial hover:-translate-y-0.5"
     >
-      <div style={{ backgroundColor: bg }} className="flex-1 px-7 py-8 sm:px-8">
+      <div
+        style={{ backgroundColor: TILE_BROWN }}
+        className="flex-1 px-7 py-8 sm:px-8"
+      >
         <div className="flex items-center justify-between gap-3">
           {Icon && <Icon className="h-6 w-6 shrink-0 text-cream/65" />}
           <span className="font-sans text-[10px] uppercase tracking-widemark text-cream/60">
@@ -70,11 +72,11 @@ function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
 export default function WorldGrid() {
   return (
     <div className="grid gap-4 sm:grid-cols-3">
-      {worldTiles.map((tile, i) => (
-        <Tile key={tile.eyebrow} tile={tile} bg={shades[i % shades.length]} />
+      {worldTiles.map((tile) => (
+        <Tile key={tile.eyebrow} tile={tile} />
       ))}
       <div className="sm:col-span-3">
-        <Tile tile={connectTile} bg={connectShade} />
+        <Tile tile={connectTile} />
       </div>
     </div>
   );

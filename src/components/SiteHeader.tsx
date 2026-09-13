@@ -12,7 +12,7 @@ export default function SiteHeader() {
           <span className="block font-display text-lg tracking-[0.14em] text-ink sm:text-xl">
             DIANE DENISE
           </span>
-          <span className="mt-0.5 block font-script text-base text-navy/80">
+          <span className="mt-0.5 block font-body text-sm italic text-navy">
             stories, music &amp; purpose
           </span>
         </a>

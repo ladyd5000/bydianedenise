@@ -56,7 +56,7 @@ button:focus-visible {
       hover:border-ink hover:bg-ink hover:text-cream;
   }
   .eyebrow {
-    @apply font-sans text-[11px] uppercase tracking-widemark text-taupe;
+    @apply font-sans text-[11px] uppercase tracking-widemark text-ink-soft;
   }
 }
 

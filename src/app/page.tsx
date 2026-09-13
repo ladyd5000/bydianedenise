@@ -46,7 +46,7 @@ export default function Home() {
 
             <Reveal delay={120}>
               <Portrait />
-              <p className="mt-4 text-center font-sans text-[11px] uppercase tracking-widemark text-taupe">
+              <p className="mt-4 text-center font-sans text-[11px] uppercase tracking-widemark text-ink-soft">
                 Writer &middot; Lyricist &middot; Storyteller &middot; Founder
               </p>
             </Reveal>
@@ -177,7 +177,7 @@ export default function Home() {
           <p className="mt-2 font-display text-xl tracking-[0.14em]">
             DIANE DENISE
           </p>
-          <p className="font-script text-xl text-cream/75">
+          <p className="font-body text-base italic text-cream/85">
             stories, music &amp; purpose
           </p>
           <nav className="mt-3 flex gap-6 font-sans text-[11px] uppercase tracking-[0.2em] text-cream/60">
