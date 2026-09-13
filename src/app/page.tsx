@@ -46,19 +46,10 @@ export default function Home() {
 
             <Reveal delay={120}>
               <Portrait />
+              <p className="mt-4 text-center font-sans text-[11px] uppercase tracking-widemark text-taupe">
+                Writer &middot; Lyricist &middot; Storyteller &middot; Founder
+              </p>
             </Reveal>
-          </div>
-        </section>
-
-        {/* ---------- Pull quote ---------- */}
-        <section className="bg-navy py-16 text-center">
-          <div className="mx-auto max-w-3xl px-6">
-            <p className="font-body text-2xl italic leading-relaxed text-cream/95 sm:text-3xl">
-              &ldquo;Written so you remember you&rsquo;re not alone.&rdquo;
-            </p>
-            <p className="mt-4 font-sans text-[11px] uppercase tracking-widemark text-cream/50">
-              From The Lantern Library
-            </p>
           </div>
         </section>
 
@@ -70,9 +61,6 @@ export default function Home() {
               <h2 className="mt-1 font-display text-4xl text-ink sm:text-5xl">
                 Diane Denise
               </h2>
-              <p className="mt-4 font-sans text-[11px] uppercase tracking-widemark text-taupe">
-                Writer · Lyricist · Storyteller · Founder
-              </p>
               <div className="mx-auto my-8 h-px w-12 bg-ink/25" />
               <div className="space-y-4 font-body text-lg text-ink-soft">
                 <p>
@@ -86,6 +74,18 @@ export default function Home() {
                 </p>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        {/* ---------- Pull quote ---------- */}
+        <section className="bg-navy py-16 text-center">
+          <div className="mx-auto max-w-3xl px-6">
+            <p className="font-body text-2xl italic leading-relaxed text-cream/95 sm:text-3xl">
+              &ldquo;Written so you remember you&rsquo;re not alone.&rdquo;
+            </p>
+            <p className="mt-4 font-sans text-[11px] uppercase tracking-widemark text-cream/50">
+              From The Lantern Library
+            </p>
           </div>
         </section>
 

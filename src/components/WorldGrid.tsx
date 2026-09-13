@@ -8,9 +8,9 @@ import {
 } from "./icons";
 import type { SVGProps } from "react";
 
-/** Warm, graded browns. */
-const shades = ["#33281F", "#3B2E23", "#4A3A2C"];
-const connectShade = "#5A4636";
+/** Warm, graded browns — lighter, coffee-toned rather than near-black. */
+const shades = ["#4E3B2A", "#5C4735", "#6B5540"];
+const connectShade = "#7A6249";
 
 const glyphs: Record<string, (p: SVGProps<SVGSVGElement>) => JSX.Element> = {
   Read: ReadGlyph,
@@ -32,15 +32,15 @@ function Tile({ tile, bg }: { tile: WorldTile; bg: string }) {
     >
       <div style={{ backgroundColor: bg }} className="flex-1 px-7 py-8 sm:px-8">
         <div className="flex items-center justify-between gap-3">
-          {Icon && <Icon className="h-6 w-6 shrink-0 text-cream/55" />}
-          <span className="font-sans text-[10px] uppercase tracking-widemark text-cream/45">
+          {Icon && <Icon className="h-6 w-6 shrink-0 text-cream/65" />}
+          <span className="font-sans text-[10px] uppercase tracking-widemark text-cream/60">
             {tile.eyebrow}
           </span>
         </div>
         <h3 className="mt-4 font-display text-2xl leading-tight sm:text-[1.7rem]">
           {tile.title}
         </h3>
-        <p className="mt-2 font-body text-sm text-cream/65">{tile.meta}</p>
+        <p className="mt-2 font-body text-sm text-cream/75">{tile.meta}</p>
         <p className="mt-1.5 font-body text-sm italic text-[#DCB988]">
           {tile.tagline}
         </p>
